@@ -23,7 +23,7 @@ export default async function UnidadesPage({ searchParams }: { searchParams: { q
   if (q) {
     query = query.or(`stock_interno.ilike.%${q}%,chasis.ilike.%${q}%,descripcion_unidad.ilike.%${q}%`);
   } else {
-    query = query.in("estado_actual", ["en_transito", "stock_fisico"]);
+    query = query.in("estado_actual", ["compra_0km", "en_transito", "stock_fisico"]);
   }
   const { data } = await query;
   const unidades = (data ?? []) as UnidadResumen[];
@@ -36,7 +36,7 @@ export default async function UnidadesPage({ searchParams }: { searchParams: { q
       />
       <BuscadorUnidades />
       {unidades.length === 0 ? (
-        <EmptyState icon={q ? Search : Car} title={q ? "Sin resultados" : "No hay unidades en tránsito ni en stock"} />
+        <EmptyState icon={q ? Search : Car} title={q ? "Sin resultados" : "No hay unidades compradas, en tránsito ni en stock"} />
       ) : (
         <ul className="divide-y divide-border rounded-xl border border-border bg-surface shadow-sm">
           {unidades.map((u) => (
