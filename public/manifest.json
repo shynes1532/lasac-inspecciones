@@ -1,0 +1,13 @@
+{
+  "name": "LASAC Inspecciones",
+  "short_name": "Inspecciones",
+  "description": "Recepción de bateas e inspección de unidades con evidencia fotográfica",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#2f7a5c",
+  "lang": "es-AR",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

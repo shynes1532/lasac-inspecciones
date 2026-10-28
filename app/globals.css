@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fondos */
+    --background: 210 20% 97%;
+    --surface: 0 0% 100%;
+    --surface-raised: 0 0% 100%;
+    --surface-sunken: 210 16% 94%;
+
+    /* Primario FIAT Azul institucional */
+    --primary: 159 42% 34%;
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 159 40% 94%;
+
+    /* Acento FIAT Rojo */
+    --accent: 159 38% 47%;
+    --accent-foreground: 0 0% 100%;
+    --accent-muted: 159 38% 94%;
+
+    /* Texto */
+    --foreground: 222 47% 11%;
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 16% 42%;
+
+    /* Bordes */
+    --border: 214 15% 89%;
+    --border-strong: 214 15% 78%;
+
+    /* Estados semánticos */
+    --success: 142 71% 40%;
+    --success-muted: 142 71% 94%;
+    --warning: 38 92% 48%;
+    --warning-muted: 38 92% 94%;
+    --destructive: 0 84% 55%;
+    --destructive-muted: 0 84% 96%;
+    --info: 199 89% 48%;
+    --info-muted: 199 89% 94%;
+
+    /* Sistema */
+    --radius: 0.625rem;
+    --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+    /* Gráficos (paleta validada CVD sobre la superficie de cada modo;
+       no cambiar un valor sin re-validar el par serie-1/serie-2) */
+    --viz-1: #1da375; /* serie 1: teal marca */
+    --viz-2: #eb6834; /* serie 2: naranja */
+    --viz-track: #dbf0e9; /* pista del medidor: paso claro del ramp teal */
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --surface: 222 47% 9%;
+    --surface-raised: 222 47% 12%;
+    --surface-sunken: 222 47% 5%;
+    --foreground: 210 20% 96%;
+    --muted: 222 47% 13%;
+    --muted-foreground: 215 16% 65%;
+    --border: 222 47% 18%;
+    --border-strong: 222 47% 28%;
+    --primary: 159 40% 52%;
+    --primary-muted: 159 35% 16%;
+    --accent: 159 38% 50%;
+    --accent-muted: 159 30% 16%;
+
+    --viz-1: #36a17b;
+    --viz-2: #d95926;
+    --viz-track: #233e35;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Scrollbar fino con tokens del tema */
+  @media (hover: hover) {
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--border-strong));
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--muted-foreground));
+      background-clip: padding-box;
+      border: 2px solid transparent;
+    }
+  }
+
+  /* Focus ring global para links y elementos interactivos nativos */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+}
